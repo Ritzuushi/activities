@@ -158,7 +158,7 @@ SHA1: 45:27:14:23:F6:BA:62:68:11:77:D7:C5:A6:98:AF:C0:95:B6:4D:D0
 flutter pub add firebase_auth
 ```
 
-8. Make sure to initialize Flutter project in the `main.dart` file:
+11. Make sure to initialize Flutter project in the `main.dart` file:
 
 ```
 Future<void> main() async {

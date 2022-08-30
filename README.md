@@ -1,6 +1,6 @@
 ## Activities 
 
-### Day 11
+### Day 12
 
 Create a Twitter Social Media App using Firebase Firestore. 
 

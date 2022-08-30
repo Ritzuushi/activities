@@ -57,7 +57,7 @@ class _BootcampLoginPageState extends State<BootcampLoginPage> {
                   ));
                 }
               },
-              child: Text('Sign In Anonymously'),
+              child: const Text('Sign In Anonymously'),
             ),
             const SizedBox(height: 8),
             SignInButton(

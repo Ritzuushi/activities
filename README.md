@@ -178,6 +178,51 @@ Future<void> main() async {
 }
 ```
 
+13. Add a function to login user anonymously
+
+```
+final userCredential = await FirebaseAuth.instance.signInAnonymously();
+
+if (userCredential.user?.uid != null) {
+    Navigator.of(context).push(MaterialPageRoute(
+    builder: (_) => BootcampHomePage(
+        id: userCredential.user!.uid,
+    ),
+    ));
+}
+```
+
+14. Add a function to login user via Gmail
+
+```
+// Trigger the Google Authentication flow.
+final GoogleSignInAccount? googleUser =
+    await GoogleSignIn().signIn();
+
+// Obtain the auth details from the request.
+final GoogleSignInAuthentication? googleAuth =
+    await googleUser?.authentication;
+
+// Create a new credential.
+final OAuthCredential googleCredential =
+    GoogleAuthProvider.credential(
+    accessToken: googleAuth!.accessToken,
+    idToken: googleAuth.idToken,
+);
+
+// Sign in to Firebase with the Google [UserCredential].
+final UserCredential googleUserCredential = await FirebaseAuth
+    .instance
+    .signInWithCredential(googleCredential);
+
+if (googleUserCredential.user?.uid != null) {
+    Navigator.of(context).push(MaterialPageRoute(
+    builder: (_) => BootcampHomePage(
+        id: googleUserCredential.user!.uid,
+    ),
+));
+```
+
 **Helpful Resources**
 - https://www.techotopia.com/index.php?title=Google_Sign-In_Authentication_using_FirebaseUI_Auth&mobileaction=toggle_view_mobile
 - https://firebase.flutter.dev/docs/auth/usage/

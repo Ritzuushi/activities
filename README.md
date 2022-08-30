@@ -1,6 +1,6 @@
 ## Activities 
 
-### Day 12
+### Day 11
 
 Create a Twitter Social Media App using Firebase Firestore. 
 
@@ -37,4 +37,5 @@ flutter run
 5. Load and read the documents from the collection in the `TweetPage` page
 6. Create a new data in the collection
 7. Delete an existing data in the collection
- 
+8. Create a new Github repository named `activities`
+9. Push the changes to your repo

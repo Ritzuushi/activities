@@ -31,7 +31,20 @@ flutter run
 
 #### Activity
 1. Create a new [Firebase project](https://firebase.google.com/)
-2. Download the `google-services.json` and replace the existing `google-services.json` in `android/app`
+2. Download the `google-services.json` and replace the existing `google-services.json` in `android/app
+
+Also, in `firebase_options.dart`, replace the following:
+
+```
+static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDs5ww_mCkh7TPaYp1bUxx20ZEXw2QpPyI',
+    appId: '1:455855695322:android:35c8689b4a5dd7da13cce3',
+    messagingSenderId: '455855695322',
+    projectId: 'dict-firebase-todo',
+    storageBucket: 'dict-firebase-todo.appspot.com',
+);
+```
+
 3. Set up a Firestore database
 4. Add [firebase_core](https://pub.dev/packages/firebase_core) and [cloud_firestore](https://pub.dev/packages/cloud_firestore) to your Flutter project
 5. Create a Firestore collection named `tweets`

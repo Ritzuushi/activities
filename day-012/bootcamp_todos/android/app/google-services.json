@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "455855695322",
-    "project_id": "dict-firebase-todo",
-    "storage_bucket": "dict-firebase-todo.appspot.com"
+    "project_number": "394082822503",
+    "project_id": "flutter-bootcamp-day-12",
+    "storage_bucket": "flutter-bootcamp-day-12.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:455855695322:android:35c8689b4a5dd7da13cce3",
+        "mobilesdk_app_id": "1:394082822503:android:eb2c2fbd7b1d9d7ca967c2",
         "android_client_info": {
-          "package_name": "com.joshuamdeguzman.bootcamp_todos"
+          "package_name": "com.vincerecentes.bootcamp_todos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "455855695322-k5mj0bikl5224isgauokla4lv2avbf2h.apps.googleusercontent.com",
+          "client_id": "394082822503-imv7maq4vgb9u9eejk28aef59o183he3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDs5ww_mCkh7TPaYp1bUxx20ZEXw2QpPyI"
+          "current_key": "AIzaSyAn5GfBz-lU8AD4qHGCo2Svumy0PpcHQUw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "455855695322-k5mj0bikl5224isgauokla4lv2avbf2h.apps.googleusercontent.com",
+              "client_id": "394082822503-imv7maq4vgb9u9eejk28aef59o183he3.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "455855695322-7iujfoj227pvrl7h7r87lkaq7hi9qkb8.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.todoApp"
-              }
             }
           ]
         }

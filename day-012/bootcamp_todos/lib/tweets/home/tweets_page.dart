@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/item_button.dart';
+import '../posts/tweet_details_page.dart';
+import '../posts/tweet_post_page.dart';
 
 class TweetsPage extends StatefulWidget {
   const TweetsPage({Key? key}) : super(key: key);
@@ -10,17 +13,79 @@ class TweetsPage extends StatefulWidget {
 }
 
 class _TweetsPageState extends State<TweetsPage> {
+  final tweetsCollection = FirebaseFirestore.instance.collection('tweets');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social'),
+        title: const Text('Tweets'),
       ),
       body: Center(
         child: Stack(
           children: [
-            const Center(
-              child: Text('Hello world!'),
+            StreamBuilder<QuerySnapshot>(
+              stream: tweetsCollection.snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
+                  return ListView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      final data = snapshot.data!.docs[index].data()
+                          as Map<String, dynamic>;
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) {
+                              return TweetDetailsPage(
+                                id: snapshot.data!.docs[index].id,
+                                title: data['title'],
+                                description: data['description'],
+                                onItemDeleted: () async {
+                                  // Delete
+                                  await tweetsCollection
+                                      .doc(snapshot.data!.docs[index].id)
+                                      .delete();
+                                },
+                              );
+                            }),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (data['title'] is String)
+                                Text(
+                                  // Add this to read the title property
+                                  data['title'],
+                                  style: const TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              if (data['description'] is String)
+                                Text(
+                                  // Add this to read the description property
+                                  data['description'],
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }
+                return const Center(
+                  child: Text('No items found.'),
+                );
+              },
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -31,7 +96,7 @@ class _TweetsPageState extends State<TweetsPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const TweetsPage(),
+                      builder: (_) => const TweetPage(),
                     ),
                   );
                 },

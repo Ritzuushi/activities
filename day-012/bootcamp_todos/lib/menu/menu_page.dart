@@ -3,6 +3,8 @@ import 'package:todo_app/groceries/home/groceries_page.dart';
 import 'package:todo_app/social/home/social_page.dart';
 import 'package:todo_app/typicode/home/typicode_page.dart';
 
+import '../tweets/home/tweets_page.dart';
+
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
 
@@ -58,7 +60,7 @@ class _MenuPageState extends State<MenuPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) {
-                    return const SocialPage();
+                    return const TweetsPage();
                   }),
                 );
               },

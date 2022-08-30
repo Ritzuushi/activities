@@ -24,7 +24,7 @@ class TweetPage extends StatefulWidget {
 }
 
 class _TweetPageState extends State<TweetPage> {
-  final postsCollection = FirebaseFirestore.instance.collection('posts');
+  final tweetsCollection = FirebaseFirestore.instance.collection('tweets');
 
   final _title = TextEditingController();
   final _description = TextEditingController();
@@ -115,12 +115,13 @@ class _TweetPageState extends State<TweetPage> {
                         _description.text.isNotEmpty &&
                         _date.text.isNotEmpty) {
                       // Add
-                      await postsCollection.add({
+                      await tweetsCollection.add({
                         "title": _title.text,
                         "description": _description.text,
                         "date": _date.text,
                       });
 
+                      if (!mounted) return;
                       Navigator.pop(context);
                     }
                   },

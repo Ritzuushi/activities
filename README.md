@@ -152,13 +152,19 @@ SHA1: 45:27:14:23:F6:BA:62:68:11:77:D7:C5:A6:98:AF:C0:95:B6:4D:D0
 ```
 9. Add the `SHA-1` fingerprint on the Android app of your Firebase project.
 
-10. Add firebase_auth dependency
+10. Add **firebase_auth** dependency
 
 ```
 flutter pub add firebase_auth
 ```
 
-11. Make sure to initialize Flutter project in the `main.dart` file:
+11. Add **google_sign_in** dependency
+
+```
+flutter pub add google_sign_in
+```
+
+12. Make sure to initialize Flutter project in the `main.dart` file:
 
 ```
 Future<void> main() async {

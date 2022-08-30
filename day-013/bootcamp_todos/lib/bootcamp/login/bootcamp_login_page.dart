@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../home/bootcamp_home_page.dart';
 
@@ -43,15 +44,49 @@ class _BootcampLoginPageState extends State<BootcampLoginPage> {
               ),
             ),
             const SizedBox(height: 32),
+            ElevatedButton(
+              onPressed: () async {
+                final userCredential =
+                    await FirebaseAuth.instance.signInAnonymously();
+
+                if (userCredential.user?.uid != null) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => BootcampHomePage(
+                      id: userCredential.user!.uid,
+                    ),
+                  ));
+                }
+              },
+              child: Text('Sign In Anonymously'),
+            ),
+            const SizedBox(height: 8),
             SignInButton(
               Buttons.Google,
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => const BootcampHomePage(
-                    id: '',
-                    firstName: '',
-                  ),
-                ));
+              onPressed: () async {
+                // Trigger the Google Authentication flow.
+                final GoogleSignInAccount? googleUser =
+                    await GoogleSignIn().signIn();
+                // Obtain the auth details from the request.
+                final GoogleSignInAuthentication? googleAuth =
+                    await googleUser?.authentication;
+                // Create a new credential.
+                final OAuthCredential googleCredential =
+                    GoogleAuthProvider.credential(
+                  accessToken: googleAuth!.accessToken,
+                  idToken: googleAuth.idToken,
+                );
+                // Sign in to Firebase with the Google [UserCredential].
+                final UserCredential googleUserCredential = await FirebaseAuth
+                    .instance
+                    .signInWithCredential(googleCredential);
+
+                if (googleUserCredential.user?.uid != null) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => BootcampHomePage(
+                      id: googleUserCredential.user!.uid,
+                    ),
+                  ));
+                }
               },
             ),
             const SizedBox(height: 8),

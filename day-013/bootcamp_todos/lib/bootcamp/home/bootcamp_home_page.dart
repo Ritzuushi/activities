@@ -1,13 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class BootcampHomePage extends StatefulWidget {
   final String id;
-  final String firstName;
 
   const BootcampHomePage({
     Key? key,
     required this.id,
-    required this.firstName,
   }) : super(key: key);
 
   @override
@@ -22,7 +21,10 @@ class _BootcampHomePageState extends State<BootcampHomePage> {
         title: const Text('Bootcamp Home'),
         actions: [
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.pop(context);
+            },
             child: const Text(
               'Logout',
             ),
@@ -31,7 +33,8 @@ class _BootcampHomePageState extends State<BootcampHomePage> {
       ),
       body: Center(
         child: Text(
-          'Welcome ${widget.firstName}!',
+          'Welcome user with\nid ${widget.id}!',
+          textAlign: TextAlign.center,
         ),
       ),
     );

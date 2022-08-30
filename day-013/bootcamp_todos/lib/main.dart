@@ -22,7 +22,7 @@ void main() async {
   );
 
   /// Initializes Firebase Auth
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   runApp(const MyApp());
 }

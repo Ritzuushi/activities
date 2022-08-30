@@ -4,6 +4,8 @@ import 'package:todo_app/social/home/social_page.dart';
 import 'package:todo_app/tweets/home/tweets_page.dart';
 import 'package:todo_app/typicode/home/typicode_page.dart';
 
+import '../bootcamp/login/bootcamp_login_page.dart';
+
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
 
@@ -70,11 +72,11 @@ class _MenuPageState extends State<MenuPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) {
-                    return const SocialPage();
+                    return const BootcampLoginPage();
                   }),
                 );
               },
-              title: const Text('Community App - Firebase Auth'),
+              title: const Text('Bootcamp App - Firebase Auth'),
             ),
           ],
         ),

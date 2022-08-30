@@ -31,11 +31,12 @@ flutter run
 
 #### Activity
 1. Create a new [Firebase project](https://firebase.google.com/)
-2. Set up a Firestore database
-3. Add [firebase_core](https://pub.dev/packages/firebase_core) and [cloud_firestore](https://pub.dev/packages/cloud_firestore) to your Flutter project
-4. Create a Firestore collection named `tweets`
-5. Load and read the documents from the collection in the `TweetPage` page
-6. Create a new data in the collection
-7. Delete an existing data in the collection
-8. Create a new Github repository named `activities`
-9. Push the changes to your repo
+2. Download the `google-services.json` and replace the existing `google-services.json` in `android/app`
+3. Set up a Firestore database
+4. Add [firebase_core](https://pub.dev/packages/firebase_core) and [cloud_firestore](https://pub.dev/packages/cloud_firestore) to your Flutter project
+5. Create a Firestore collection named `tweets`
+6. Load and read the documents from the collection in the `TweetPage` page
+7. Create a new data in the collection
+8. Delete an existing data in the collection
+9. Create a new Github repository named `activities`
+10. Push the changes to your repo

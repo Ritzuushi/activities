@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/groceries/home/groceries_page.dart';
 import 'package:todo_app/social/home/social_page.dart';
+import 'package:todo_app/tweets/home/tweets_page.dart';
 import 'package:todo_app/typicode/home/typicode_page.dart';
 
 class MenuPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _MenuPageState extends State<MenuPage> {
                   }),
                 );
               },
-              title: const Text('Groceries - Local DB Demo'),
+              title: const Text('Groceries App - Hive Local Database'),
             ),
             ListTile(
               onTap: () {
@@ -40,7 +41,7 @@ class _MenuPageState extends State<MenuPage> {
                   }),
                 );
               },
-              title: const Text('Typicode - RESTful API Demo'),
+              title: const Text('Typicode App - RESTful API'),
             ),
             ListTile(
               onTap: () {
@@ -51,7 +52,18 @@ class _MenuPageState extends State<MenuPage> {
                   }),
                 );
               },
-              title: const Text('Social - Firestore'),
+              title: const Text('Social App - Firestore'),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) {
+                    return const TweetsPage();
+                  }),
+                );
+              },
+              title: const Text('Tweets App - Firestore'),
             ),
             ListTile(
               onTap: () {
@@ -62,7 +74,7 @@ class _MenuPageState extends State<MenuPage> {
                   }),
                 );
               },
-              title: const Text('Tweets - Firestore'),
+              title: const Text('Community App - Firebase Auth'),
             ),
           ],
         ),

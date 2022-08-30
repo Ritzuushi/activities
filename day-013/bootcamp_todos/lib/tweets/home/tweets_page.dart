@@ -14,7 +14,7 @@ class _TweetsPageState extends State<TweetsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social'),
+        title: const Text('Tweets'),
       ),
       body: Center(
         child: Stack(
